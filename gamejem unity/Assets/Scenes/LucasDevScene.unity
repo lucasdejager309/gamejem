@@ -133,10 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 22416467}
   - component: {fileID: 22416466}
-  - component: {fileID: 22416468}
   m_Layer: 0
   m_Name: standin ship
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,18 +205,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &22416468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22416465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80f0af1f72494f42ab2535a569a0c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &340895246
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +392,8 @@ GameObject:
   - component: {fileID: 1625820229}
   - component: {fileID: 1625820228}
   - component: {fileID: 1625820230}
+  - component: {fileID: 1625820231}
+  - component: {fileID: 1625820232}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -434,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625820227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -8.26, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,3 +480,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1625820231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625820227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c6dcee6361ed14d8b892fe83965309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: PlayerShip
+  attackDistance: 0
+  rotationSpeed: 4
+  chargeRotSpread: 0.25
+  movementSpeed: 4
+  acceleration: 2
+--- !u!50 &1625820232
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625820227}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
