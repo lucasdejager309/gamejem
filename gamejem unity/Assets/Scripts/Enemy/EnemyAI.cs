@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpread;
     public float bulletSpeed;
+    public float damage;
     GameObject target;
     
     float currentDistance;
@@ -119,12 +120,12 @@ public class EnemyAI : MonoBehaviour
 
     void Attack() {
         if (sinceLastShot == 0) {
-            Debug.Log("shoot");
 
             Vector3 difference = target.transform.position - bulletOrigin.position;
             float rotZ = (Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg) + Random.Range(-bulletSpread, bulletSpread);
             GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, Quaternion.Euler(0f, 0f, rotZ));
             bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right*bulletSpeed;
+            bullet.GetComponent<BulletScript>().damage = damage;
 
             sinceLastShot = attackSpeed;
         }
