@@ -45,7 +45,7 @@ public class ShipGun : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, MinRotationRange);
         }
 
-        print(transform.localRotation.eulerAngles.z);
+        
         if (ShootCooldown < CurrentCooldown && ammo != 0) {
             if (Input.GetKey(KeyCode.RightShift))
             {
