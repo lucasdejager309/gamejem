@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: PlayerShip
-  minOrbitDistance: 9
-  maxOrbitDistance: 12
+  minOrbitDistance: 12
+  maxOrbitDistance: 15
   orbitVariationModifier: 2
   attackRange: 14
   attackSpeed: 1
@@ -325,4 +325,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - prefab: {fileID: 4387744604587770718, guid: 634edff06085cd540bbb0c13cb988409, type: 3}
-    dropchancePercentage: 30
+    dropchancePercentage: 10

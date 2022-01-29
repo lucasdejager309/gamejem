@@ -325,4 +325,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - prefab: {fileID: 4387744604587770718, guid: 634edff06085cd540bbb0c13cb988409, type: 3}
-    dropchancePercentage: 100
+    dropchancePercentage: 10
