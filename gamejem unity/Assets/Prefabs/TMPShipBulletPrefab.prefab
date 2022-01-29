@@ -122,6 +122,7 @@ MonoBehaviour:
   - PlayerShip
   - PlayerBullet
   - EnemyBullet
+  - Pickup
 --- !u!58 &7844122968650590416
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class BulletScript : MonoBehaviour
         }
         
         if (doDamage) {
+            
             IDamagable dam = other.GetComponent<IDamagable>();
             if (dam != null) {
                 dam.TakeDamage(damage);

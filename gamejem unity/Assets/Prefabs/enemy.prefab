@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 8092828101068264966}
   - component: {fileID: -1558287280697712502}
   - component: {fileID: -8516122650026780766}
+  - component: {fileID: 2962398345316617990}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -308,3 +309,20 @@ MonoBehaviour:
   crashIgnoreTags:
   - Enemy
   - EnemyBullet
+  - Pickup
+  - PlayerBullet
+--- !u!114 &2962398345316617990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092828101068264973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f500ed1918f51de4187143f68bdccfc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - prefab: {fileID: 4387744604587770718, guid: 634edff06085cd540bbb0c13cb988409, type: 3}
+    dropchancePercentage: 30
