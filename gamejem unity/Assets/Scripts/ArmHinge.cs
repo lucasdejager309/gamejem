@@ -35,7 +35,7 @@ public class ArmHinge : MonoBehaviour
 
         if(ArmDistance < MinTargetAccuracy)
         {
-            print("NotEvenClose");
+            //print("NotEvenClose");
             return;
         }
 
@@ -62,14 +62,14 @@ public class ArmHinge : MonoBehaviour
 
         if (ArmDistance < MinusDistance && ArmDistance < PosDistance)
         {
-            print("No");
+            //print("No");
             return;
         }
         else if(MinusDistance < PosDistance)
         {
 
             
-            print("Min");
+            //print("Min");
             //transform.localRotation.SetEulerAngles(transform.rotation.eulerAngles + new Vector3(0, 0, -RotateSpeed));
             transform.localRotation = Quaternion.Euler(0,0,  transform.localRotation.eulerAngles.z - RotateSpeed * Mathf.Deg2Rad);
 
@@ -77,7 +77,7 @@ public class ArmHinge : MonoBehaviour
         }
         else
         {
-            print("Max");
+            //print("Max");
             //transform.localRotation.SetEulerAngles(transform.rotation.eulerAngles + new Vector3(0, 0, RotateSpeed));
             transform.localRotation = Quaternion.Euler(0, 0, transform.localRotation.eulerAngles.z + RotateSpeed * Mathf.Deg2Rad);
         }
