@@ -8,8 +8,9 @@ public class Enemy {
     public float difficultyValue;
 }
 
-public class EnemySpawner : Singleton<EnemySpawner>
+public class EnemySpawner : MonoBehaviour
 {
+    public bool doWaves = false;
     public Enemy[] spawnables;
     [SerializeField] float difficulty;
     [SerializeField] float nextWaveNeededDifficulty;
@@ -22,17 +23,18 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public int waveCount = 1;
     GameObject[] enemies;
 
-    bool newWaveStarted = false;
+    bool newWaveStarted;
+    Transform player;
 
     void Start() {
-
+        player = GameObject.FindGameObjectWithTag("PlayerShip").transform;
     }
 
     void Update() {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = enemies.Length;
 
-        if (enemyCount == 0 && !newWaveStarted) {
+        if (enemyCount == 0 && !newWaveStarted && doWaves) {
             StartCoroutine("StartWave");
         }        
     }
@@ -46,16 +48,31 @@ public class EnemySpawner : Singleton<EnemySpawner>
     }
 
     void SpawnEnemies() {
+        difficulty = 0;
+
         while (difficulty < nextWaveNeededDifficulty) {
-            Debug.Log("spawning enemy");
+            bool foundEnemyToSpawn = false;
+
             Enemy enemyToSpawn = spawnables[Random.Range(0, spawnables.Length)];
             GameObject newEnemy = Instantiate(enemyToSpawn.prefab, new Vector2(0, 0), Quaternion.identity);
 
-            //random pos
+            Vector2 pos = new Vector2();
+            bool foundGoodPos = false;
+            while (!foundGoodPos) {
+                pos.x = Random.Range(player.position.x-maxSpawnDistanceFromPlayer, player.position.x+maxSpawnDistanceFromPlayer);
+                pos.y = Random.Range(player.position.x-maxSpawnDistanceFromPlayer, player.position.x+maxSpawnDistanceFromPlayer);
+
+                if (Vector2.Distance(player.transform.position, pos) > minSpawnDistanceFromPlayer) {
+                    foundGoodPos = true;
+                }
+            }
+
+            newEnemy.transform.position = new Vector2(pos.x, pos.y);
 
             difficulty += enemyToSpawn.difficultyValue;
         }
         nextWaveNeededDifficulty *= difficultyMultiplier;
+        waveCount++;
 
         newWaveStarted = false;
     }

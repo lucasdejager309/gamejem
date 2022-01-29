@@ -169,6 +169,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5070308153988280945, guid: d0865ad04a2face4bac4837a8fd634a6, type: 3}
+      propertyPath: ThrustForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5070308154866962313, guid: d0865ad04a2face4bac4837a8fd634a6, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -366,19 +370,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
       propertyPath: spawnables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
       propertyPath: nextWaveNeededDifficulty
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
+      propertyPath: maxSpawnDistanceFromPlayer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
+      propertyPath: minSpawnDistanceFromPlayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
       propertyPath: spawnables.Array.data[0].prefab
       value: 
       objectReference: {fileID: 8092828101068264973, guid: 42f094e3ef2f42f4785c5836440f9524, type: 3}
     - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
+      propertyPath: spawnables.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 8092828101068264973, guid: 355398021c0eb91488821da20a5c3a02, type: 3}
+    - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
       propertyPath: spawnables.Array.data[0].difficultyValue
-      value: 20
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734921659062807192, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
+      propertyPath: spawnables.Array.data[1].difficultyValue
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8868722495188046014, guid: 8b041388895e631429536e1f3c1336b3, type: 3}
       propertyPath: m_Name

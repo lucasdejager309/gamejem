@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2491261904138517997}
   - component: {fileID: 3734921659062807192}
+  - component: {fileID: -9017934913322542757}
   m_Layer: 0
   m_Name: Gamemanager
   m_TagString: Untagged
@@ -41,5 +42,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afeed46a31eb1ee44bf2c66c301e5406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnables: []
+  difficulty: 0
+  nextWaveNeededDifficulty: 0
+  difficultyMultiplier: 0
+  timeBetweenWaves: 0
+  minSpawnDistanceFromPlayer: 0
+  maxSpawnDistanceFromPlayer: 0
+  enemyCount: 0
+  waveCount: 1
+--- !u!114 &-9017934913322542757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868722495188046014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdb77397e0f9474da8e38153f01bf89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -7,8 +7,10 @@ public class EnemyAI : MonoBehaviour
     public string targetTag;
     public float minOrbitDistance;
     public float maxOrbitDistance;
+    public float orbitVariationModifier;
     public float attackRange;
     public float attackSpeed;
+    public bool doAttack;
     public float rotationSpeed;
     public float movementSpeed;
     public float acceleration;
@@ -21,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     
     float currentDistance;
     float sinceLastShot;
+    float orbitVariation;
 
     Rigidbody2D rb;
 
@@ -35,6 +38,7 @@ public class EnemyAI : MonoBehaviour
     void Start() {
         target = GameObject.FindGameObjectWithTag(targetTag);
         rb = gameObject.GetComponent<Rigidbody2D>();
+        orbitVariation = Random.Range(-orbitVariationModifier, orbitVariationModifier);
     }
 
     void FixedUpdate()
@@ -54,7 +58,7 @@ public class EnemyAI : MonoBehaviour
                     break;
                 case enemyState.circle:
                     CircleTarget();
-                    if (currentDistance > maxOrbitDistance+maxOrbitDistance/4) {
+                    if (currentDistance > maxOrbitDistance+orbitVariation+maxOrbitDistance/4) {
                         state = enemyState.charge;
                     } else if (currentDistance < minOrbitDistance) {
                         state = enemyState.flee;
@@ -63,7 +67,7 @@ public class EnemyAI : MonoBehaviour
 
                 case enemyState.flee:
                     Flee();
-                    if (currentDistance > minOrbitDistance) {
+                    if (currentDistance > minOrbitDistance-orbitVariation) {
                         state = enemyState.charge;
                     }
                     break;
@@ -72,7 +76,7 @@ public class EnemyAI : MonoBehaviour
 
         Move();
 
-        if (currentDistance < attackRange) {
+        if (currentDistance < attackRange && doAttack) {
             Attack();
         }
 
