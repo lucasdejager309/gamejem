@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3734921659062807192}
   - component: {fileID: -9017934913322542757}
   - component: {fileID: 4065195311078888211}
+  - component: {fileID: 1474893404043955584}
   m_Layer: 0
   m_Name: Gamemanager
   m_TagString: Untagged
@@ -45,8 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afeed46a31eb1ee44bf2c66c301e5406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doWaves: 0
-  spawnables: []
+  doWaves: 1
+  spawnables:
+  - prefab: {fileID: 8092828101068264973, guid: 42f094e3ef2f42f4785c5836440f9524, type: 3}
+    difficultyValue: 50
+  - prefab: {fileID: 8092828101068264973, guid: 355398021c0eb91488821da20a5c3a02, type: 3}
+    difficultyValue: 70
   difficulty: 0
   nextWaveNeededDifficulty: 100
   difficultyMultiplier: 1.2
@@ -67,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdb77397e0f9474da8e38153f01bf89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &4065195311078888211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,3 +85,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2c7c6efb6072d4c90adf099d6d0143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1474893404043955584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868722495188046014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fbcf0c48d68cf47bce5d56beb5d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: e639d3993c0a3cc4e882f06bb70036f9, type: 2}
+  soundMixer: {fileID: 24100000, guid: 190dadc451405904390ad8965211a06c, type: 2}
+  dialogueMixer: {fileID: 24100000, guid: 6197c5d34ba20484dbef0791880ad72b, type: 2}
+  subtitles: {fileID: 0}

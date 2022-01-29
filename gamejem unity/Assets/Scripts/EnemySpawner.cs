@@ -51,8 +51,6 @@ public class EnemySpawner : MonoBehaviour
         difficulty = 0;
 
         while (difficulty < nextWaveNeededDifficulty) {
-            bool foundEnemyToSpawn = false;
-
             Enemy enemyToSpawn = spawnables[Random.Range(0, spawnables.Length)];
             GameObject newEnemy = Instantiate(enemyToSpawn.prefab, new Vector2(0, 0), Quaternion.identity);
 

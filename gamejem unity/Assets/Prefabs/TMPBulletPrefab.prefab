@@ -121,6 +121,7 @@ MonoBehaviour:
   ignoreTags:
   - Enemy
   - EnemyBullet
+  - PlayerBullet
 --- !u!58 &7844122968650590416
 CircleCollider2D:
   m_ObjectHideFlags: 0

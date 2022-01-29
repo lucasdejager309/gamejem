@@ -956,7 +956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 3
   ShootCooldown: 1
-  Bulletspeed: 5
+  Bulletspeed: 10
+  RotationRange: 70
+  BulletPrefab: {fileID: 6721427424144899410, guid: d4052c7c7eff6e14d82bc89697b01a08, type: 3}
 --- !u!1 &509699228361669208
 GameObject:
   m_ObjectHideFlags: 0

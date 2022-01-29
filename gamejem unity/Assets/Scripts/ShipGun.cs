@@ -10,12 +10,17 @@ public class ShipGun : MonoBehaviour
     public float Bulletspeed;
     public float RotationRange;
     private float MinRotationRange;
+    public int ammo;
+    public int maxAmmo;
+
+    bool reloading;
 
     public GameObject BulletPrefab;
 
     private void Start()
     {
         MinRotationRange = 360 - RotationRange;
+        ammo = maxAmmo;
     }
 
     private void FixedUpdate()
@@ -41,12 +46,12 @@ public class ShipGun : MonoBehaviour
         }
 
         print(transform.localRotation.eulerAngles.z);
-        if (ShootCooldown < CurrentCooldown) {
+        if (ShootCooldown < CurrentCooldown && ammo != 0) {
             if (Input.GetKey(KeyCode.RightShift))
             {
-                GameObject Bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
-                Bullet.GetComponent<Rigidbody2D>().velocity = Bullet.GetComponent<Transform>().up * Bulletspeed;
-                CurrentCooldown = 0;
+                Shoot();
+                ammo--;
+                Debug.Log("ammo left: " + ammo);
             }
         }
         else
@@ -54,6 +59,19 @@ public class ShipGun : MonoBehaviour
             CurrentCooldown += Time.deltaTime;
         }
 
+    }
+
+    void Shoot() {
+        GameObject Bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
+        Bullet.GetComponent<Rigidbody2D>().velocity = Bullet.GetComponent<Transform>().up * Bulletspeed;
+        CurrentCooldown = 0;
+    }
+
+    public void Reload(int ammoAmount) {
+        ammo += ammoAmount;
+        if (ammo > maxAmmo) {
+            ammo = maxAmmo;
+        }
     }
 
 }
