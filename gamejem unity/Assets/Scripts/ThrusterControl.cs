@@ -13,6 +13,7 @@ public class ThrusterControl : MonoBehaviour
     public float Angle;
     public float RotateSpeed = 2;
     public float ThrustForce = 5;
+    public float MaxSpeed = 150;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +38,14 @@ public class ThrusterControl : MonoBehaviour
     void Update()
     {
         Vector2 RelativePos = Rotate(ShipOffset, Angle);
-        transform.position = new Vector3(RelativePos.x, RelativePos.y, 0) + GameObject.FindGameObjectWithTag("PlayerShip").transform.position;
+        transform.position = new Vector3(RelativePos.x, RelativePos.y, -2) + GameObject.FindGameObjectWithTag("PlayerShip").transform.position;
         transform.rotation = Quaternion.Euler(0,0,Angle);
 
     }
 
     private void FixedUpdate()
     {
+        //Rotate Based on input
         if (Input.GetKey(KeyCode.A)) {
             //Can I move here with the other component in the way?
             Angle += RotateSpeed;
@@ -55,10 +57,18 @@ public class ThrusterControl : MonoBehaviour
         }
         Angle = Angle % 360;
 
-        if(Input.GetKey(KeyCode.S))
+
+        Rigidbody2D Rigid = GameObject.FindGameObjectWithTag("PlayerShip").GetComponent<Rigidbody2D>();
+
+        //Thrust
+        if (Input.GetKey(KeyCode.S))
         {
-            Rigidbody2D Rigid = GameObject.FindGameObjectWithTag("PlayerShip").GetComponent<Rigidbody2D>();
             Rigid.AddForce(Rotate(new Vector2(0,-1), Angle) * ThrustForce);
+        }
+        //Limit speed
+        if (Rigid.velocity.magnitude > MaxSpeed)
+        {
+            Rigid.velocity = Rigid.velocity.normalized * MaxSpeed;
         }
 
 
