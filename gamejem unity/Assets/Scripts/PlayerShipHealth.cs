@@ -57,4 +57,10 @@ public class PlayerShipHealth : HealthBasic
         }
     }
 
+    public void RegenShield(float amount) {
+        shield += amount;
+        if (shield > maxShield) {
+            shield = maxShield;
+        }
+    }
 }
