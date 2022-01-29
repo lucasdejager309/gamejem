@@ -7,6 +7,8 @@ TagManager:
   - PlayerShip
   - Enemy
   - EnemyTurret
+  - RotateObstructor
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
