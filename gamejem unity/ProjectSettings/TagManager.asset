@@ -9,6 +9,8 @@ TagManager:
   - EnemyTurret
   - RotateObstructor
   - EnemyBullet
+  - PlayerShieldSlider
+  - PlayerHealthSlider
   layers:
   - Default
   - TransparentFX
