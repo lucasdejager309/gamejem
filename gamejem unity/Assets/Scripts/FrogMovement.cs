@@ -13,7 +13,7 @@ public class FrogMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShipOffset = new Vector2(transform.position.x, transform.position.y);
+        ShipOffset = new Vector2(transform.localPosition.x, transform.localPosition.y);
         Angle = StartDegrees;
     }
     public static Vector2 Rotate(Vector2 v, float degrees)
