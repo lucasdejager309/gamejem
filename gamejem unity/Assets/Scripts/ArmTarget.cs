@@ -5,8 +5,9 @@ using UnityEngine;
 public class ArmTarget : MonoBehaviour
 {
 
-    public float TargetMoveSpeed;
-    public float ArmMaxLength;
+    public float TargetMoveSpeed = 0.2f;
+    public float ArmMaxLength = 7;
+    public float TargetPullbackSpeed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,17 @@ public class ArmTarget : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        ;
+        Transform target = GameObject.FindGameObjectWithTag("ArmLocation").transform;
+        Vector2 toVec = new Vector2(target.position.x, target.position.y) - new Vector2(transform.position.x, transform.position.y);
+        
+        if (toVec.magnitude > TargetPullbackSpeed)
+        {
+            toVec = toVec.normalized * TargetPullbackSpeed;
+
+            transform.position += new Vector3(toVec.x, toVec.y, 0);
+
+        }
+
 
         if(Input.GetKey(KeyCode.I))
         {
