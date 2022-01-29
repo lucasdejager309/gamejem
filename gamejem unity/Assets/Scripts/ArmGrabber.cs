@@ -7,6 +7,8 @@ public class ArmGrabber : MonoBehaviour
 
     private Collider2D target;
     public bool Engaged = false;
+    public Sprite Open;
+    public Sprite Closed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,20 +26,27 @@ public class ArmGrabber : MonoBehaviour
     {
         BoxCollider2D Coll = GetComponent<BoxCollider2D>();
         
-        if(Input.GetKeyDown(KeyCode.RightShift) && target != Coll)
+        if(Input.GetKeyDown(KeyCode.RightShift))
         {
-            target.gameObject.transform.parent = transform;
+            if (target != Coll) {
+                target.gameObject.transform.parent = transform;
+                target.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+            }
             Engaged = true;
+            GetComponent<SpriteRenderer>().sprite = Closed;
+
         }
 
-        if(Input.GetKeyUp(KeyCode.RightShift) && Engaged && target != Coll)
+        if(Input.GetKeyUp(KeyCode.RightShift))
         {
             //target.gameObject.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
-            
-            target.gameObject.transform.parent = null;
-            
+            if (Engaged && target != Coll) {
+                target.gameObject.transform.parent = null;
+            }
             Engaged = false;
+            GetComponent<SpriteRenderer>().sprite = Open;
         }
+
 
 
 
@@ -48,8 +57,6 @@ public class ArmGrabber : MonoBehaviour
     {
         if (other.CompareTag("Pickup"))
         {
-            print("Hahanow");
-
             target = other;
         }
         return;
