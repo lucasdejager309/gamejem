@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBasic : MonoBehaviour, IDamagable {
-    [SerializeField] private float health = 8;
+    [SerializeField] private float health;
     public float maxHealth = 8;
     public float Health {
         get { return health; }
@@ -11,6 +11,10 @@ public class HealthBasic : MonoBehaviour, IDamagable {
 
     public virtual void TakeDamage(float damage) {
         health -= damage; 
+    }
+
+    void Start() {
+        health = maxHealth;
     }
 
     void Update() {

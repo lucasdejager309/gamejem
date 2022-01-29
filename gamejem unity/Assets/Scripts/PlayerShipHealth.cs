@@ -31,6 +31,7 @@ public class PlayerShipHealth : HealthBasic
 
     public override void TakeDamage(float damage)
     {
+        
         float damageToTake = damage;
 
         if (shield > damage) {
