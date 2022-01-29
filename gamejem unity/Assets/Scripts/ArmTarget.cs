@@ -46,8 +46,5 @@ public class ArmTarget : MonoBehaviour
             transform.localPosition = transform.localPosition.normalized * ArmMaxLength;
         }
 
-
-
-
     }
 }
